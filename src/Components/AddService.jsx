@@ -1,19 +1,24 @@
-// import axios from "axios";
+import axios from "axios";
 import moment from "moment";
+import { AuthContext } from "./AuthProvider";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 const AddService = () => {
-
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
     const handleAddServices = e => {
         e.preventDefault()
         const formData = new FormData(e.target);
         const initialData = Object.fromEntries(formData.entries());
         const updateInitialData = {...initialData, Date: moment().format("dddd, MMMM Do YYYY")};
         console.log(updateInitialData);
-        // axios.post("http://localhost:5000/reviews", initialData)
-        // .then(res => {
-        //     console.log(res.data);
-        // })
+        navigate("/myservices")
+        axios.post("http://localhost:5000/reviews", updateInitialData)
+        .then(res => {
+            console.log(res.data);
+        })
     }
 
     return (
@@ -25,7 +30,7 @@ const AddService = () => {
                     <label className="label">
                         <span className="label-text">Service Image</span>
                     </label>
-                    <input type="url" name="serviceImage" placeholder="Service Image" className="input input-bordered" required />
+                    <input type="url" name="serviceImage" placeholder="Service Image-URL" className="input input-bordered" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
@@ -61,7 +66,7 @@ const AddService = () => {
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <input type="email" name="email" placeholder="Email" className="input input-bordered" required />
+                    <input defaultValue={user.email} type="email" name="email"  className="input input-bordered" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
