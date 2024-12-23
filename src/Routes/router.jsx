@@ -11,6 +11,8 @@ import AddService from "../Components/AddService";
 import MyReviews from "../Pages/MyReviews";
 import ErrorPage from "../Pages/ErrorPage";
 import MyServices from "../Pages/MyServices";
+import PrivetRoute from "../Components/PrivetRoute";
+import Details from "../Pages/Details";
   const router = createBrowserRouter([
     {
       path: "/",
@@ -31,7 +33,8 @@ import MyServices from "../Pages/MyServices";
         },
         {
           path: "/services",
-          element: <Services></Services>
+          element: <Services></Services>,
+          loader: () => fetch("http://localhost:5000/reviews")
         },
         {
           path: "/addservice",
@@ -44,6 +47,11 @@ import MyServices from "../Pages/MyServices";
         {
           path: "/myservices",
           element: <MyServices></MyServices>
+        },
+        {
+          path: "/service/:id",
+          element: <PrivetRoute><Details></Details></PrivetRoute>,
+          loader: ({params}) => fetch(`http://localhost:5000/service/${params.id}`)
         }
       ]
     },

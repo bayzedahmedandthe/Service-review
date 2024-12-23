@@ -10,7 +10,7 @@ const Header = () => {
             <div className="carousel w-[94%] mx-auto">
                 <div id="item1" className="carousel-item lg:flex-row md:flex-row flex-col lg:p-0 md:p-0 p-6   w-full bg-gradient-to-r from-gray-50 to bg-white border-green-400 border rounded-lg ">
                     <div className="lg:pl-[200px] lg:pt-44 md:pl-[100px] md:pt-8 ">
-                        <h2 className="lg:text-3xl font-semibold">Discover Excellence with Every <span className="text-[#00ca4c]">Review</span></h2>
+                        <h2 className="lg:text-3xl font-semibold">Discover Excellence with Every <span className="text-[#00ca4c]">Service Review</span></h2>
                         <p className="pt-4">From local businesses to global services, explore detailed reviews and ratings to ensure the quality and reliability of every service you use. Trust our system to guide you toward the best!
 
                         </p>

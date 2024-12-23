@@ -3,6 +3,7 @@ import moment from "moment";
 import { AuthContext } from "./AuthProvider";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const AddService = () => {
@@ -12,20 +13,27 @@ const AddService = () => {
         e.preventDefault()
         const formData = new FormData(e.target);
         const initialData = Object.fromEntries(formData.entries());
-        const updateInitialData = {...initialData, Date: moment().format("dddd, MMMM Do YYYY")};
-        console.log(updateInitialData);
+        const updateInitialData = { ...initialData, Date: moment().format("dddd, MMMM Do YYYY") };
+        // console.log(updateInitialData);
         navigate("/myservices")
         axios.post("http://localhost:5000/reviews", updateInitialData)
-        .then(res => {
-            console.log(res.data);
-        })
+            .then(res => {
+                Swal.fire({
+                    position: "center" ,
+                    icon: "success",
+                    title: "Service added successfull",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                console.log(res.data);
+            })
     }
 
     return (
         <div className="lg:w-6/12 mx-auto md:w-8/12">
-            <form 
-            onSubmit={handleAddServices}
-            className="card-body">
+            <form
+                onSubmit={handleAddServices}
+                className="card-body">
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Service Image</span>
@@ -66,7 +74,7 @@ const AddService = () => {
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <input defaultValue={user.email} type="email" name="email"  className="input input-bordered" required />
+                    <input defaultValue={user.email} type="email" name="email" className="input input-bordered" required />
                 </div>
                 <div className="form-control">
                     <label className="label">

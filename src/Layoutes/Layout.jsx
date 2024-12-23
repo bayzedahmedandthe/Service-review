@@ -12,7 +12,7 @@ const Layout = () => {
             </div>
             {/* navbar container end */}
             {/* outlet container start */}
-            <div className="py-12 w-11/12 mx-auto">
+            <div className="py-10 w-11/12 mx-auto">
                 <Outlet></Outlet>
             </div>
             {/* outlet container end */}
