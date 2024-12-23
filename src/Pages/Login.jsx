@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Components/AuthProvider";
 import { toast } from "react-toastify";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
@@ -8,6 +8,9 @@ import { FcGoogle } from "react-icons/fc";
 
 
 const Login = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state || "/"
     const { loginUser, user } = useContext(AuthContext);
     const handleLoginUser = e => {
         e.preventDefault();
@@ -18,7 +21,9 @@ const Login = () => {
         loginUser(email, password)
             .then(result => {
                 // console.log(result.user);
+                navigate(from)
                 toast.success("Login successfull")
+
             })
             .catch(error => {
                 // console.log(error);
@@ -32,11 +37,12 @@ const Login = () => {
         }
         signInWithPopup(auth, provider)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
+                navigate(from)
                 toast.success("Login successfull")
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
             })
     }
 

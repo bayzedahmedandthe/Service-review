@@ -74,7 +74,7 @@ const AddService = () => {
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <input defaultValue={user.email} type="email" name="email" className="input input-bordered" required />
+                    <input defaultValue={user?.email} type="email" name="email" className="input input-bordered" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
