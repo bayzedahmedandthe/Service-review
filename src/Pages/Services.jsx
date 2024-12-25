@@ -2,12 +2,16 @@
 import { useLoaderData } from "react-router-dom";
 import SingleService from "../Components/SingleService";
 import { motion } from "motion/react";
+import { Helmet } from "react-helmet-async";
 
 
 const Services = () => {
     const services = useLoaderData();
     return (
         <div>
+            <Helmet>
+                <title>Service | All Service</title>
+            </Helmet>
             <motion.h2
                 animate={{ x: [20, 40, 20] }}
                 transition={{ duration: 3, repeat: Infinity }}

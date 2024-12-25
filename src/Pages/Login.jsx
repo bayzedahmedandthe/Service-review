@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import auth from "../../Firebase.init";
 import { FcGoogle } from "react-icons/fc";
+import { Helmet } from "react-helmet-async";
 
 
 const Login = () => {
@@ -48,6 +49,9 @@ const Login = () => {
 
     return (
         <div className="lg:w-6/12 mx-auto md:w-8/12">
+            <Helmet>
+                <title>Service | Login</title>
+            </Helmet>
             <div className="flex items-center md:gap-52 gap-10 lg:gap-64 justify-center ">
                 <div>
                     <h2 className="text-[#00ca4c] font-semibold md:text-xl text-lg lg:text-2xl">Login now</h2>

@@ -4,6 +4,7 @@ import { AuthContext } from "./AuthProvider";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const AddService = () => {
@@ -31,6 +32,9 @@ const AddService = () => {
 
     return (
         <div className="lg:w-6/12 mx-auto md:w-8/12">
+            <Helmet>
+                <title>Add Service</title>
+            </Helmet>
             <form
                 onSubmit={handleAddServices}
                 className="card-body">

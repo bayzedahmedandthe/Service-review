@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import Rating from "../Components/rating";
 import { AuthContext } from "../Components/AuthProvider";
 import moment from "moment";
+import { Helmet } from "react-helmet-async";
 // import ratingChanged from "../Components/ratingChanged";
 const Details = () => {
     const { user } = useContext(AuthContext);
@@ -26,6 +27,9 @@ const Details = () => {
     }
     return (
         <div className="lg:flex items-center gap-8">
+            <Helmet>
+                <title>Services Details</title>
+            </Helmet>
             <div
                 data-aos="zoom-in-up"
                 data-aos-duration="2000"

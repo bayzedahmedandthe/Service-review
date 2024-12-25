@@ -10,7 +10,7 @@ const ServiceFeatured = () => {
         axios.get("http://localhost:5000/reviews/featured")
             .then(res => setServiceData(res.data))
     }, [])
-    console.log(serviceData);
+    // console.log(serviceData);
     return (
         <div>
             <motion.h2
