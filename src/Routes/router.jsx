@@ -33,8 +33,7 @@ import Details from "../Pages/Details";
         },
         {
           path: "/services",
-          element: <Services></Services>,
-          loader: () => fetch("http://localhost:5000/reviews")
+          element: <Services></Services>
         },
         {
           path: "/addservice",

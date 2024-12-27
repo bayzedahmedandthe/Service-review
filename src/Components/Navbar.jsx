@@ -1,15 +1,17 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import { toast } from "react-toastify";
 import auth from "../../Firebase.init";
 import logo1 from "../assets/icons8-rating-100.png"
 
 const Navbar = () => {
+    const navigate = useNavigate();
     const { logOutUser, user } = useContext(AuthContext);
     const handleLogOut = () => {
         logOutUser(auth)
             .then(result => {
+                navigate("/")
                 toast.success("Logout successfull")
             })
             .catch(error => {

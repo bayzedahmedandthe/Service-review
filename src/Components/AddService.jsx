@@ -20,7 +20,7 @@ const AddService = () => {
         axios.post("http://localhost:5000/reviews", updateInitialData)
             .then(res => {
                 Swal.fire({
-                    position: "center" ,
+                    position: "center",
                     icon: "success",
                     title: "Service added successfull",
                     showConfirmButton: false,
