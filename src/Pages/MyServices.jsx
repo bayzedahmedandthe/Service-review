@@ -12,13 +12,13 @@ const MyServices = () => {
     const [myService, setMyService] = useState([]);
     const [search, setSearch] = useState("");
     const [updateValue, setUpdateValue] = useState({});
-
+    const [reload, setReload] = useState(true);
 
 
     useEffect(() => {
         axios.get(`http://localhost:5000/reviews?email=${user?.email}&searchparams=${search}`)
             .then(res => setMyService(res.data))
-    }, [user?.email, search])
+    }, [user?.email, search, reload])
 
 
     // delete functionality
@@ -60,12 +60,37 @@ const MyServices = () => {
     // const { serviceImage, serviceTitle, description, category, price, _id, Date } = myService;
 
     const handleUpdate = (e) => {
-       
+        // console.log(e);
+        // console.log(updateValue);
         e.preventDefault();
         const formData = new FormData(e.target);
         const initialData = Object.fromEntries(formData.entries());
         const updateInitialData = { ...initialData, Date: moment().format("dddd, MMMM Do YYYY") };
-        console.log(updateInitialData);
+        // console.log(updateInitialData);
+        fetch(`http://localhost:5000/reviews/${updateValue?._id}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(updateInitialData),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    setReload(!reload)
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Service updated successfull",
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                }
+            });
+
+
+
 
 
 
@@ -181,6 +206,7 @@ const MyServices = () => {
                                     <span className="label-text">Description</span>
                                 </label>
                                 <textarea
+                                    defaultValue={updateValue.description}
                                     placeholder="Description"
                                     name="description"
                                     className="textarea textarea-bordered textarea-md w-full "></textarea>

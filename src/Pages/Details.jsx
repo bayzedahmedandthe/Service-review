@@ -1,18 +1,23 @@
 import Aos from "aos";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Rating from "../Components/rating";
 import { AuthContext } from "../Components/AuthProvider";
 import moment from "moment";
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
 // import ratingChanged from "../Components/ratingChanged";
 const Details = () => {
     const { user } = useContext(AuthContext);
     useEffect(() => {
         Aos.init()
-    })
+    });
+    const [value, setValue] = useState(0);
+    // console.log(value);
+    const [addReview, setAddReview] = useState([]);
+    const [reload, setReload] = useState(true)
     const detailsData = useLoaderData();
-    const { serviceImage, serviceTitle, description, category, price, _id, Date } = detailsData;
+    const { serviceImage, serviceTitle, description, category, price, _id, companyName, website, Date } = detailsData;
 
     const handleAddReview = e => {
         e.preventDefault()
@@ -22,24 +27,40 @@ const Details = () => {
         const email = form.email.value;
         const photo = form.photo.value;
         const reviewData = { textReview, name, email, photo };
-        const updateReviewData = {...reviewData, Date: moment().format("dddd, MMMM Do YYYY"),}
-        console.log(updateReviewData);
+        const updateReviewData = { ...reviewData, Date: moment().format("dddd, MMMM Do YYYY"), value, serviceId: _id }
+        // console.log(updateReviewData);
+        axios.post("http://localhost:5000/addReview", updateReviewData)
+            .then(res =>
+                console.log(res.data)
+                
+            )
+            form.reset()
     }
+    useEffect(() => {
+        fetch(`http://localhost:5000/addReview/${_id}`)
+            .then(res => res.json())
+            .then(data => {
+                setAddReview(data);
+                setReload(!reload)
+            })
+    }, [reload])
+
     return (
-        <div className="lg:flex items-center gap-8">
+        <div className=" grid md:grid-cols-2  gap-8">
             <Helmet>
                 <title>Services Details</title>
             </Helmet>
             <div
                 data-aos="zoom-in-up"
                 data-aos-duration="2000"
-                className="bg-white shadow-xl rounded-lg p-4">
+                className="bg-white shadow-xl rounded-lg p-4 h-[930px]">
 
                 <img className="h-[160px] w-[280px] rounded-lg" src={serviceImage} alt="" />
                 <p className="text-gray-500 pt-2">Post: {Date}</p>
                 <h2 className="text-lg font-semibold py-3">{serviceTitle}</h2>
-                
+                <p className="font-semibold pb-2">Company: {companyName}</p>
                 <p className="text-gray-500 max-w-[600px]">{description}</p>
+                <p className="py-2">{website}</p>
                 <p className="font-semibold py-2">{category}</p>
                 <p><span className="font-semibold">Price</span>: {price}</p>
                 <div className="pt-6">
@@ -52,7 +73,7 @@ const Details = () => {
                             name="textReview"
                             required
                             className="textarea textarea-bordered textarea-lg w-full max-w-xs"></textarea>
-                        <Rating></Rating>
+                        <Rating value={value} setValue={setValue}></Rating>
                         <input type="text" name="name" defaultValue={user.displayName} className="input input-bordered w-full max-w-xs" />
                         <input type="email" name="email" defaultValue={user.email} className="input input-bordered w-full max-w-xs" />
                         <input type="url" name="photo" defaultValue={user.photoURL} className="input input-bordered w-full max-w-xs" />
@@ -62,7 +83,24 @@ const Details = () => {
                     </form>
                 </div>
             </div>
-
+            <div className="">
+                <h2 className="text-lg font-semibold text-[#00a34c]">Total review: </h2>
+                {
+                    addReview.map(review => <div key={_id}
+                        className="shadow-xl my-12 py-8 rounded-xl"
+                    >
+                        <div className="flex items-center gap-4">
+                            <img className="h-14 w-14 rounded-full ml-4" src={review.photo} alt="" />
+                            <div>
+                                <h3 className="text-lg font-bold py-1">{review.name}</h3>
+                                <p className="text-gray-500">{review.email}</p>
+                            </div>
+                        </div>
+                        <p className="font-semibold text-lg pl-4 pt-4">Rating: {review.value}</p>
+                        <p className="pl-4 pt-4 text-gray-500">{review.textReview}</p>
+                    </div>)
+                }
+            </div>
         </div>
 
     );

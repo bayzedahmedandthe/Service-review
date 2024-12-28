@@ -1,8 +1,9 @@
 import { useState } from "react";
 
 
-const rating = () => {
-    const [value, setValue] = useState(0)
+const rating = ({value, setValue}) => {
+    
+
     return (
         <div className="flex items-center gap-2">
             {[...Array(5)].map((_, index) =>{
