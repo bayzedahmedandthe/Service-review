@@ -4,12 +4,15 @@ import axios from "axios";
 import { Helmet } from "react-helmet-async";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import Swal from "sweetalert2";
+import moment from "moment";
 
 
 const MyServices = () => {
     const { user } = useContext(AuthContext);
     const [myService, setMyService] = useState([]);
     const [search, setSearch] = useState("");
+    const [updateValue, setUpdateValue] = useState({});
+
 
 
     useEffect(() => {
@@ -52,6 +55,29 @@ const MyServices = () => {
         });
 
     }
+
+
+    // const { serviceImage, serviceTitle, description, category, price, _id, Date } = myService;
+
+    const handleUpdate = (e) => {
+       
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const initialData = Object.fromEntries(formData.entries());
+        const updateInitialData = { ...initialData, Date: moment().format("dddd, MMMM Do YYYY") };
+        console.log(updateInitialData);
+
+
+
+
+
+        document.getElementById('my_modal_5').close()
+    }
+
+
+
+
+
     return (
         <div className="bg-gray-50 rounded-lg mt-12">
             <Helmet>
@@ -84,7 +110,16 @@ const MyServices = () => {
                                     <td>{service.Date}</td>
                                     <td>
                                         <div className="flex items-center gap-2">
-                                            <button onClick={() => handleUpdate(service._id)} className="btn bg-[#00ca4c]">Update</button>
+
+                                            {/* Open the modal using document.getElementById('ID').showModal() method */}
+
+                                            <button onClick={() => {
+                                                setUpdateValue(service)
+                                                document.getElementById('my_modal_5').showModal()
+                                            }} className="btn bg-[#00ca4c]">Update</button>
+
+
+
                                             <button onClick={() => handleDelete(service._id)} className="btn text-2xl text-red-500"><RiDeleteBin6Line /></button>
                                         </div>
                                     </td>
@@ -93,6 +128,76 @@ const MyServices = () => {
                         }
                     </tbody>
                 </table>
+                <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                    <div className="modal-box">
+                        {/* form container */}
+                        <form
+                            onSubmit={handleUpdate}
+                            className="card-body">
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Service Image</span>
+                                </label>
+                                <input type="url" name="serviceImage" defaultValue={updateValue.serviceImage} placeholder="Service Image-URL" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Service Title</span>
+                                </label>
+                                <input type="text" name="serviceTitle" defaultValue={updateValue.serviceTitle} placeholder="Service Title" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Company Name</span>
+                                </label>
+                                <input type="text" name="companyName" defaultValue={updateValue.companyName} placeholder="Company Name" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Website</span>
+                                </label>
+                                <input type="text" name="website" defaultValue={updateValue.website} placeholder="Website" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Category</span>
+                                </label>
+                                <input type="text" name="category" defaultValue={updateValue.category} placeholder="Category" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Price</span>
+                                </label>
+                                <input type="text" name="price" defaultValue={updateValue.price} placeholder="Price" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input defaultValue={user?.email} type="email" name="email" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Description</span>
+                                </label>
+                                <textarea
+                                    placeholder="Description"
+                                    name="description"
+                                    className="textarea textarea-bordered textarea-md w-full "></textarea>
+                            </div>
+                            <div className="form-control mt-6">
+                                <button className="btn bg-[#00ca4c]">Update Service</button>
+                            </div>
+                        </form>
+                        {/* form container end */}
+                        <div className="modal-action">
+                            <form method="dialog">
+                                {/* if there is a button in form, it will close the modal */}
+                                <button className="btn">Close</button>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
             </div>
         </div>
     );
