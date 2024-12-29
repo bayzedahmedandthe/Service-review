@@ -6,6 +6,8 @@ import { AuthContext } from "../Components/AuthProvider";
 import moment from "moment";
 import { Helmet } from "react-helmet-async";
 import axios from "axios";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 // import ratingChanged from "../Components/ratingChanged";
 const Details = () => {
     const { user } = useContext(AuthContext);
@@ -27,14 +29,20 @@ const Details = () => {
         const email = form.email.value;
         const photo = form.photo.value;
         const reviewData = { textReview, name, email, photo };
-        const updateReviewData = { ...reviewData, Date: moment().format("dddd, MMMM Do YYYY"), value, serviceId: _id }
+        const updateReviewData = { ...reviewData, Date: moment().format("dddd, MMMM Do YYYY"), value, serviceId: _id, serviceTitle: serviceTitle }
         // console.log(updateReviewData);
         axios.post("http://localhost:5000/addReview", updateReviewData)
-            .then(res =>
+            .then(res => {
                 console.log(res.data)
-                
-            )
-            form.reset()
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Review added successfull",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
+        form.reset()
     }
     useEffect(() => {
         fetch(`http://localhost:5000/addReview/${_id}`)
@@ -96,6 +104,7 @@ const Details = () => {
                                 <p className="text-gray-500">{review.email}</p>
                             </div>
                         </div>
+                        <p className="text-xl font-semibold py-2 pl-4">{review.serviceTitle}</p>
                         <p className="font-semibold text-lg pl-4 pt-4">Rating: {review.value}</p>
                         <p className="pl-4 pt-4 text-gray-500">{review.textReview}</p>
                     </div>)
