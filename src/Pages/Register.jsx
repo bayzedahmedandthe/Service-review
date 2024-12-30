@@ -1,17 +1,20 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Components/AuthProvider";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 
 
 const Register = () => {
+    const navigate = useNavigate();
     const { createUser, updateUserProfile, setUser, user } = useContext(AuthContext);
     const handleRegister = e => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
+        const photo = form.photo.value;
+        const name = form.name.value;
         // console.log(email, password);
         if (password.length < 6) {
             return toast.error("password must be 6 character")
@@ -23,6 +26,7 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 // console.log(result.user);
+                navigate("/")
                 toast.success("Registation successfull")
                 updateUserProfile({ displayName: name, photoURL: photo })
                     .then(() => {
@@ -30,7 +34,7 @@ const Register = () => {
                     })
                     .catch(error => {
                         console.log(error);
-                        toast.error("Already register")
+                        
                     })
 
             })

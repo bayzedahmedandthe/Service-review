@@ -92,7 +92,6 @@ const Details = () => {
                 </div>
             </div>
             <div className="">
-                <h2 className="text-lg font-semibold text-[#00a34c]">Total review: </h2>
                 {
                     addReview.map(review => <div key={_id}
                         className="shadow-xl my-12 py-8 rounded-xl"
