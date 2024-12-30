@@ -16,7 +16,7 @@ const MyServices = () => {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/reviews?email=${user?.email}&searchparams=${search}`)
+        axios.get(`http://localhost:5000/reviews?email=${user?.email}&searchparams=${search}`, {withCredentials: true})
             .then(res => setMyService(res.data))
     }, [user?.email, search, reload])
 
@@ -67,7 +67,7 @@ const MyServices = () => {
         const initialData = Object.fromEntries(formData.entries());
         const updateInitialData = { ...initialData, Date: moment().format("dddd, MMMM Do YYYY") };
         // console.log(updateInitialData);
-        fetch(`http://localhost:5000/reviews/${updateValue?._id}`, {
+        fetch(`http://localhost:5000/reviews/${updateValue?._id}`,{
             method: "PUT",
             headers: {
                 "content-type": "application/json",

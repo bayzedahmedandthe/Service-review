@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Header from "../Components/Header";
 import ServiceFeatured from "../Components/ServiceFeatured";
+import MeetOurTeam from "../Components/MeetOurTeam";
 
 
 
@@ -12,6 +13,7 @@ const HomePage = () => {
             </Helmet>
            <Header></Header>
            <ServiceFeatured></ServiceFeatured>
+           <MeetOurTeam></MeetOurTeam>
         </div>
     );
 };

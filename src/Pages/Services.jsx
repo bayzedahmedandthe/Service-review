@@ -10,14 +10,14 @@ const Services = () => {
     const [serviceData, setServicesData] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/reviews")
+        fetch("http://localhost:5000/reviews", {credentials: "include"})
         .then(res => res.json())
         .then(data => setServicesData(data))
     }, [])
        const [search, setSearch] = useState("");
         // search functionality fetch
         useEffect(() => {
-            fetch(`http://localhost:5000/reviews?searchparams=${search}`)
+            fetch(`http://localhost:5000/reviews?searchparams=${search}`, {credentials: "include"})
                 .then(res => res.json())
                 .then(data => {
                     setServicesData(data);

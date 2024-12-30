@@ -45,7 +45,7 @@ const Details = () => {
         form.reset()
     }
     useEffect(() => {
-        fetch(`http://localhost:5000/addReview/${_id}`)
+        fetch(`http://localhost:5000/addReview/${_id}`, {credentials: "include"})
             .then(res => res.json())
             .then(data => {
                 setAddReview(data);

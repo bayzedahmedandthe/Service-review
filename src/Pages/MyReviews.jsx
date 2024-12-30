@@ -12,7 +12,7 @@ const MyReviews = () => {
     const [reload, setReload] = useState(true);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/addReview?email=${user?.email}`)
+        fetch(`http://localhost:5000/addReview?email=${user?.email}`, {credentials: "include"})
             .then(res => res.json())
             .then(data => {
                 setMyReview(data)
@@ -145,7 +145,7 @@ const MyReviews = () => {
                                 className="textarea textarea-bordered textarea-md w-full "></textarea>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn bg-[#00ca4c]">Update Service</button>
+                            <button className="btn bg-[#00ca4c]">Update Review</button>
                         </div>
                     </form>
                     {/* form container end */}
