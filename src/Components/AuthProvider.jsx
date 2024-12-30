@@ -36,18 +36,18 @@ const AuthProvider = ({ children }) => {
 
             if(currentUser?.email){
                 const user = {email: currentUser.email};
-                axios.post("http://localhost:5000/jwt", user, {withCredentials: true})
+                axios.post("https://assaignment-11-server-site.vercel.app/jwt", user, {withCredentials: true})
                 .then(res => {
-                    console.log(res.data);
+                    // console.log(res.data);
                     setLoading(false);
                 })
             }
             else{
-                axios.post("http://localhost:5000/logout", {}, {
+                axios.post("https://assaignment-11-server-site.vercel.app/logout", {}, {
                     withCredentials: true
                 })
                 .then(res => {
-                    console.log(res.data);
+                    // console.log(res.data);
                     setLoading(false);
                 })
             }
@@ -65,7 +65,8 @@ const AuthProvider = ({ children }) => {
         updateUserProfile,
         logOutUser,
         user, 
-        setuser
+        setuser,
+        loading
 
     }
     return (

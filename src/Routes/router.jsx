@@ -50,7 +50,7 @@ import Details from "../Pages/Details";
         {
           path: "/service/:id",
           element: <PrivetRoute><Details></Details></PrivetRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/service/${params.id}`)
+          loader: ({params}) => fetch(`https://assaignment-11-server-site.vercel.app/service/${params.id}`)
         }
       ]
     },

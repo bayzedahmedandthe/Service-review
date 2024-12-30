@@ -17,7 +17,7 @@ const AddService = () => {
         const updateInitialData = { ...initialData, Date: moment().format("dddd, MMMM Do YYYY") };
         // console.log(updateInitialData);
         navigate("/myservices")
-        axios.post("http://localhost:5000/reviews", updateInitialData)
+        axios.post("https://assaignment-11-server-site.vercel.app/reviews", updateInitialData)
             .then(res => {
                 Swal.fire({
                     position: "center",
@@ -26,7 +26,7 @@ const AddService = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                console.log(res.data);
+                // console.log(res.data);
             })
     }
 

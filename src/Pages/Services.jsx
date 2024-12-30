@@ -10,14 +10,14 @@ const Services = () => {
     const [serviceData, setServicesData] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/reviews", {credentials: "include"})
+        fetch("https://assaignment-11-server-site.vercel.app/reviews", )
         .then(res => res.json())
         .then(data => setServicesData(data))
     }, [])
        const [search, setSearch] = useState("");
         // search functionality fetch
         useEffect(() => {
-            fetch(`http://localhost:5000/reviews?searchparams=${search}`, {credentials: "include"})
+            fetch(`https://assaignment-11-server-site.vercel.app/reviews?searchparams=${search}`, )
                 .then(res => res.json())
                 .then(data => {
                     setServicesData(data);

@@ -7,7 +7,7 @@ import SingleService from "./SingleService";
 const ServiceFeatured = () => {
     const [serviceData, setServiceData] = useState([]);
     useEffect(() => {
-        axios.get("http://localhost:5000/reviews/featured")
+        axios.get("https://assaignment-11-server-site.vercel.app/reviews/featured")
             .then(res => setServiceData(res.data))
     }, [])
     // console.log(serviceData);

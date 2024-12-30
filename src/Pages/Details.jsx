@@ -31,7 +31,7 @@ const Details = () => {
         const reviewData = { textReview, name, email, photo };
         const updateReviewData = { ...reviewData, Date: moment().format("dddd, MMMM Do YYYY"), value, serviceId: _id, serviceTitle: serviceTitle }
         // console.log(updateReviewData);
-        axios.post("http://localhost:5000/addReview", updateReviewData)
+        axios.post("https://assaignment-11-server-site.vercel.app/addReview", updateReviewData, )
             .then(res => {
                 console.log(res.data)
                 Swal.fire({
@@ -45,7 +45,7 @@ const Details = () => {
         form.reset()
     }
     useEffect(() => {
-        fetch(`http://localhost:5000/addReview/${_id}`, {credentials: "include"})
+        fetch(`https://assaignment-11-server-site.vercel.app/addReview/${_id}`, {credentials: "include"})
             .then(res => res.json())
             .then(data => {
                 setAddReview(data);

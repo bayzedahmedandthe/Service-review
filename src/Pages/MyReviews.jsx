@@ -12,7 +12,7 @@ const MyReviews = () => {
     const [reload, setReload] = useState(true);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/addReview?email=${user?.email}`, {credentials: "include"})
+        fetch(`https://assaignment-11-server-site.vercel.app/addReview?email=${user?.email}`, )
             .then(res => res.json())
             .then(data => {
                 setMyReview(data)
@@ -20,7 +20,7 @@ const MyReviews = () => {
     }, [user?.email, reload]);
     // console.log(myReview);
     const handleDelete = (_id) => {
-        console.log(_id);
+        // console.log(_id);
         Swal.fire({
             title: "Are you sure?",
             text: "do you want to delete this review?",
@@ -31,12 +31,12 @@ const MyReviews = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/addReview/${_id}`, {
+                fetch(`https://assaignment-11-server-site.vercel.app/addReview/${_id}`,  {
                     method: "DELETE"
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         if (data.deletedCount > 0) {
 
 
@@ -61,7 +61,7 @@ const MyReviews = () => {
         const formData = new FormData(e.target);
         const initialData = Object.fromEntries(formData.entries());
         // console.log(updateInitialData);
-        fetch(`http://localhost:5000/addReview/${updateValue?._id}`, {
+        fetch(`https://assaignment-11-server-site.vercel.app/addReview/${updateValue?._id}`,  {
             method: "PUT",
             headers: {
                 "content-type": "application/json",

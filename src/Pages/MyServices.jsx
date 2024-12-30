@@ -16,14 +16,14 @@ const MyServices = () => {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/reviews?email=${user?.email}&searchparams=${search}`, {withCredentials: true})
+        axios.get(`https://assaignment-11-server-site.vercel.app/reviews?email=${user?.email}&searchparams=${search}`, )
             .then(res => setMyService(res.data))
     }, [user?.email, search, reload])
 
 
     // delete functionality
     const handleDelete = (_id) => {
-        console.log(_id);
+        // console.log(_id);
         Swal.fire({
             title: "Are you sure?",
             text: "do you want to delete this service?",
@@ -34,12 +34,12 @@ const MyServices = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/reviews/${_id}`, {
+                fetch(`https://assaignment-11-server-site.vercel.app/reviews/${_id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         if (data.deletedCount > 0) {
 
 
@@ -67,7 +67,7 @@ const MyServices = () => {
         const initialData = Object.fromEntries(formData.entries());
         const updateInitialData = { ...initialData, Date: moment().format("dddd, MMMM Do YYYY") };
         // console.log(updateInitialData);
-        fetch(`http://localhost:5000/reviews/${updateValue?._id}`,{
+        fetch(`https://assaignment-11-server-site.vercel.app/reviews/${updateValue?._id}`,{
             method: "PUT",
             headers: {
                 "content-type": "application/json",
@@ -76,7 +76,7 @@ const MyServices = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 if (data.modifiedCount > 0) {
                     setReload(!reload)
                     Swal.fire({
