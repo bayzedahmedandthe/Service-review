@@ -30,3 +30,5 @@
 * moment
 * sweetalert2
 * axios
+
+ To run this project locally open the terminal and type this command "npm run dev"
