@@ -8,7 +8,13 @@
 * If you click on the See details button of the card, it will go to a new page according to the ID of the card and some data will show
 * The user can update and delete there service by going to the my service page and clicking the delete and update button.
 *  If the user gose to the my review page, they will see the reviews of the services they have added
-*** 
+***
+- ## Technologies used: 
+* react.js
+* tailwind.css
+* firebase
+
+***
 - ## NPM packages usage: 
 * animate.css
 * aos
