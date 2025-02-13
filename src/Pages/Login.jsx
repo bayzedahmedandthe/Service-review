@@ -48,15 +48,15 @@ const Login = () => {
     }
 
     return (
-        <div className="lg:w-6/12 mx-auto md:w-8/12">
+        <div className="lg:w-6/12 mx-auto md:w-8/12 pt-32">
             <Helmet>
                 <title>Service | Login</title>
             </Helmet>
             <div className="flex items-center md:gap-52 gap-10 lg:gap-64 justify-center ">
                 <div>
-                    <h2 className="text-[#00ca4c] font-semibold md:text-xl text-lg lg:text-2xl">Login now</h2>
+                    <h2 className=" font-semibold md:text-xl text-lg lg:text-2xl">Login now</h2>
                 </div>
-                <button onClick={handleLoginWithGoogle} className="btn bg-[#00ca4c]"><span className="text-2xl"><FcGoogle /></span> Login with google</button>
+                <button onClick={handleLoginWithGoogle} className="bg-[#00032e] text-gray-300 hover:text-white md:py-2 md:px-4 rounded-md flex gap-4"><span className="text-2xl"><FcGoogle /></span> Login with google</button>
             </div>
             <form
                 onSubmit={handleLoginUser}
@@ -74,7 +74,7 @@ const Login = () => {
                     <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                 </div>
                 <div className="form-control mt-6">
-                    <button className="btn bg-[#00ca4c]">Login</button>
+                    <button className="bg-[#00032e] text-gray-300 hover:text-white md:py-2 md:px-4 rounded-md">Login</button>
                 </div>
                 <p className="pt-3">New to this website! <Link className="hover:underline" to="/register">register</Link></p>
             </form>

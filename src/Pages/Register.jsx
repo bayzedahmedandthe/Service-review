@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     const navigate = useNavigate();
-    const { createUser, updateUserProfile, setUser, user } = useContext(AuthContext);
+    const { createUser, updateUserProfile, setUser } = useContext(AuthContext);
     const handleRegister = e => {
         e.preventDefault();
         const form = e.target;
@@ -45,11 +45,11 @@ const Register = () => {
 
     }
     return (
-        <div className="lg:w-6/12 mx-auto">
+        <div className="lg:w-6/12 mx-auto  pt-32">
             <Helmet>
                 <title>Service | Register</title>
             </Helmet>
-            <h2 className="text-[#00ca4c] text-2xl font-semibold pl-8">Register now</h2>
+            <h2 className="text-[#a1bbbf  ] text-2xl font-semibold pl-8">Register now</h2>
             <form
                 onSubmit={handleRegister}
                 className="card-body">
@@ -81,7 +81,7 @@ const Register = () => {
                     </label>
                 </div>
                 <div className="form-control mt-6">
-                    <button className="btn bg-[#00ca4c]">Register</button>
+                    <button className="bg-[#00032e] text-gray-300 hover:text-white md:py-2 md:px-4 rounded-md">Register</button>
                 </div>
                 <p className="pt-3">Alredy have an account! <Link className="hover:underline" to="/login">Login</Link></p>
             </form>

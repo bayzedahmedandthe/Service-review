@@ -16,7 +16,7 @@ const MyServices = () => {
 
 
     useEffect(() => {
-        axios.get(`https://assaignment-11-server-site.vercel.app/reviews?email=${user?.email}&searchparams=${search}`, )
+        axios.get(`https://assaignment-11-server-site.vercel.app/reviews?email=${user?.email}&searchparams=${search}`,)
             .then(res => setMyService(res.data))
     }, [user?.email, search, reload])
 
@@ -67,7 +67,7 @@ const MyServices = () => {
         const initialData = Object.fromEntries(formData.entries());
         const updateInitialData = { ...initialData, Date: moment().format("dddd, MMMM Do YYYY") };
         // console.log(updateInitialData);
-        fetch(`https://assaignment-11-server-site.vercel.app/reviews/${updateValue?._id}`,{
+        fetch(`https://assaignment-11-server-site.vercel.app/reviews/${updateValue?._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
@@ -104,7 +104,7 @@ const MyServices = () => {
 
 
     return (
-        <div className="bg-gray-50 rounded-lg mt-12">
+        <div className=" rounded-lg pt-32 w-11/12 mx-auto">
             <Helmet>
                 <title>My Services</title>
             </Helmet>
@@ -114,7 +114,7 @@ const MyServices = () => {
                     onChange={(e) => setSearch(e.target.value)}
                     type="text" placeholder="Enter Service title" className="input input-bordered w-full max-w-xs" />
             </div>
-            <h2 className=" text-xl font-semibold pt-6 px-6">My Service</h2>
+            <h2 className="text-2xl font-semibold">My <span className="text-[#30eaff]">Service</span></h2>
             <div className="overflow-x-auto py-10">
                 <table className="table">
                     {/* head */}
@@ -141,7 +141,7 @@ const MyServices = () => {
                                             <button onClick={() => {
                                                 setUpdateValue(service)
                                                 document.getElementById('my_modal_5').showModal()
-                                            }} className="btn bg-[#00ca4c]">Update</button>
+                                            }} className="bg-[#00032e] text-gray-300 hover:text-white md:py-2 md:px-4 rounded-md">Update</button>
 
 
 
@@ -212,14 +212,14 @@ const MyServices = () => {
                                     className="textarea textarea-bordered textarea-md w-full "></textarea>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn bg-[#00ca4c]">Update Service</button>
+                                <button className="bg-[#00032e] text-gray-300 hover:text-white md:py-2 md:px-4 rounded-md">Update Service</button>
                             </div>
                         </form>
                         {/* form container end */}
                         <div className="modal-action">
                             <form method="dialog">
                                 {/* if there is a button in form, it will close the modal */}
-                                <button className="btn">Close</button>
+                                <button className="bg-[#00032e] text-gray-300 hover:text-white md:py-2 md:px-4 rounded-md">Close</button>
                             </form>
                         </div>
                     </div>

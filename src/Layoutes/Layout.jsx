@@ -7,12 +7,12 @@ const Layout = () => {
         
         <div className="font-poppins ">
             {/* navbar container start */}
-            <div className="pt-8 w-11/12 mx-auto">
+            <div className="">
                 <Navbar></Navbar>
             </div>
             {/* navbar container end */}
             {/* outlet container start */}
-            <div className="py-10 w-11/12 mx-auto">
+            <div className="">
                 <Outlet></Outlet>
             </div>
             {/* outlet container end */}

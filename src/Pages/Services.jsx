@@ -24,14 +24,14 @@ const Services = () => {
                 })
         }, [search])
     return (
-        <div>
+        <div className="w-11/12 mx-auto pt-32">
             <Helmet>
                 <title>Service | All Service</title>
             </Helmet>
             <motion.h2
                 animate={{ x: [20, 40, 20] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="font-semibold text-2xl mb-10">All <span className="text-[#00ca4c]">services</span></motion.h2>
+                className="font-semibold text-2xl">All <span className="text-[#30eaff]">services</span></motion.h2>
             <p className="text-end pr-24 pt-4 font-semibold">Search based on title</p>
             <div className="flex justify-end pt-2 pb-6 pr-6">
                 <input

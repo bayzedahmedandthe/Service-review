@@ -12,11 +12,11 @@ const ServiceFeatured = () => {
     }, [])
     // console.log(serviceData);
     return (
-        <div>
+        <div className="w-11/12 mx-auto">
             <motion.h2
                 animate={{ x: [20, 40, 20] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="font-semibold text-2xl mb-10">Some of the <span className="text-[#00ca4c]">services</span></motion.h2>
+                className="font-semibold text-2xl mb-10">Some of the <span className="text-[#30eaff]">services</span></motion.h2>
 
             <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-16">
                 {

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import { toast } from "react-toastify";
 import auth from "../../Firebase.init";
@@ -19,7 +19,7 @@ const Navbar = () => {
             })
     }
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar fixed z-10 bg-gradient-to-b from-[#00032e] to-[#070b32]">
 
             <div className="navbar-start">
                 <div className="dropdown">
@@ -40,49 +40,49 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <Link to="/"><li><a>Home</a></li></Link>
-                        <Link to="/services"><li><a>Services</a></li></Link>
+                        <NavLink to="/"><li><a>Home</a></li></NavLink>
+                        <NavLink to="/services"><li><a>Services</a></li></NavLink>
                         {
                             user && <div>
-                                <Link to="/services"><li><a> Add Service</a></li></Link>
-                                <Link to="/myreviews"><li><a> My Reviews</a></li></Link>
-                                <Link to="/myservices"><li><a> My Services</a></li></Link>
+                                <NavLink to="/services"><li><a> Add Service</a></li></NavLink>
+                                <NavLink to="/myreviews"><li><a> My Reviews</a></li></NavLink>
+                                <NavLink to="/myservices"><li><a> My Services</a></li></NavLink>
                             </div>
                         }
                     </ul>
                 </div>
-                {/* <a className="btn btn-ghost text-xl"></a> */}
-                <button className="h-16 w-16 flex justify-center"><Link to="/">
-                <img src={logo1} alt="" /></Link>
+                <button className="h-16 w-16 flex justify-center md:mx-8">
+                    <NavLink to="/">
+                        <img src={logo1} alt="" />
+                    </NavLink>
                 </button>
-                <h2 className="text-[#00ca4c] font-semibold">Service Reviews</h2>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    <Link to="/"><li><a>Home</a></li></Link>
-                    <Link to="/services"><li><a>Services</a></li></Link>
+                <ul className=" flex items-center gap-4 px-1 text-gray-300">
+                    <NavLink to="/"><li className=" hover:text-white"><a>Home</a></li></NavLink>
+                    <NavLink to="/services"><li className="hover:text-white"><a>Services</a></li></NavLink>
                     {
                         user &&
-                        <div className="flex items-center gap-2">
-                            <Link to="/addservice"><li><a> Add Service</a></li></Link>
-                            <Link to="/myreviews"><li><a> My Reviews</a></li></Link>
-                            <Link to="/myservices"><li><a> My Services</a></li></Link>
+                        <div className="flex items-center gap-4 text-gray-300">
+                            <NavLink to="/addservice"><li className="hover:text-white"><a> Add Service</a></li></NavLink>
+                            <NavLink to="/myreviews"><li className="hover:text-white"><a> My Reviews</a></li></NavLink>
+                            <NavLink to="/myservices"><li className="hover:text-white"><a> My Services</a></li></NavLink>
                         </div>
 
                     }
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end ">
                 {
                     user ?
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-4 md:mr-8 text-gray-300">
                             <img className="h-12 w-12 rounded-full" src={user.photoURL} alt="" />
-                            <button onClick={handleLogOut} className="btn bg-[#00ca4c]">Logout</button>
+                            <button onClick={handleLogOut} className="hover:text-white">Logout</button>
                         </div>
                         :
-                        <div>
-                            <button className="btn bg-[#00ca4c] mr-4"><Link to="/login">Login</Link></button>
-                            <button className="btn bg-[#00ca4c]"><Link to="/register">Register</Link></button>
+                        <div className="text-gray-300 md:mr-8">
+                            <button className="mr-4 hover:text-white"><NavLink to="/login">Login</NavLink></button>
+                            <button className="hover:text-white md:mr-8"><NavLink to="/register">Register</NavLink></button>
                         </div>
                 }
             </div>

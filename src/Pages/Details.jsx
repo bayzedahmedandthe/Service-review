@@ -33,7 +33,7 @@ const Details = () => {
         // console.log(updateReviewData);
         axios.post("https://assaignment-11-server-site.vercel.app/addReview", updateReviewData, )
             .then(res => {
-                console.log(res.data)
+                console.log(res.data);
                 Swal.fire({
                     position: "center",
                     icon: "success",
@@ -54,7 +54,7 @@ const Details = () => {
     }, [reload])
 
     return (
-        <div className=" grid md:grid-cols-2  gap-8">
+        <div className=" grid md:grid-cols-2 pt-32 gap-8 w-11/12 mx-auto">
             <Helmet>
                 <title>Services Details</title>
             </Helmet>
@@ -85,8 +85,8 @@ const Details = () => {
                         <input type="text" name="name" defaultValue={user.displayName} className="input input-bordered w-full max-w-xs" />
                         <input type="email" name="email" defaultValue={user.email} className="input input-bordered w-full max-w-xs" />
                         <input type="url" name="photo" defaultValue={user.photoURL} className="input input-bordered w-full max-w-xs" />
-                        <div className="flex justify-end my-4">
-                            <button className="btn bg-[#00ca4c] max-w-[115px]">Add review</button>
+                        <div className="flex justify-end my-4 text-gray-300">
+                            <button className="bg-[#00032e] hover:text-white md:py-2 md:px-4 rounded-md">Add review</button>
                         </div>
                     </form>
                 </div>
@@ -94,7 +94,7 @@ const Details = () => {
             <div className="">
                 {
                     addReview.map(review => <div key={_id}
-                        className="shadow-xl my-12 py-8 rounded-xl"
+                        className="shadow-xl py-8 rounded-xl"
                     >
                         <div className="flex items-center gap-4">
                             <img className="h-14 w-14 rounded-full ml-4" src={review.photo} alt="" />
