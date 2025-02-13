@@ -31,10 +31,11 @@ const AddService = () => {
     }
 
     return (
-        <div className="lg:w-6/12 mx-auto md:w-8/12">
+        <div className="lg:w-6/12 mx-auto md:w-8/12 pt-32">
             <Helmet>
                 <title>Add Service</title>
             </Helmet>
+            <h2 className="text-2xl font-semibold text-center">Add a <span className="text-[#30eaff]">Service</span></h2>
             <form
                 onSubmit={handleAddServices}
                 className="card-body">
@@ -90,7 +91,7 @@ const AddService = () => {
                         className="textarea textarea-bordered textarea-md w-full "></textarea>
                 </div>
                 <div className="form-control mt-6">
-                    <button className="btn bg-[#00ca4c]">Add Service</button>
+                    <button className="bg-[#00032e] text-gray-300 hover:text-white md:py-2 md:px-4 rounded-md">Add Service</button>
                 </div>
             </form>
         </div>
