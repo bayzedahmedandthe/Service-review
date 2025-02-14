@@ -5,7 +5,6 @@ import img3 from "../assets/zeeconvert-com__6_-removebg-preview.png"
 
 
 const Header = () => {
-    // lg:pl-[200px] 
     return (
         <div className="">
             <div className="carousel">
@@ -50,7 +49,7 @@ const Header = () => {
                         className="lg:w-[600px] lg:h-[700px]" />
                 </div>
             </div>
-            <div className="flex w-full justify-center mb-44 pt-12 gap-2 py-2">
+            <div className="flex w-full justify-center mb-16 pt-12 gap-2 py-2">
                 <a href="#item1" className="btn btn-xs">1</a>
                 <a href="#item2" className="btn btn-xs">2</a>
                 <a href="#item3" className="btn btn-xs">3</a>

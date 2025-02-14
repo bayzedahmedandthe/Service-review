@@ -1,7 +1,7 @@
 
 const MeetOurTeam = () => {
     return (
-        <div className="my-12">
+        <div className="my-12 w-11/12 mx-auto">
             <h1 className="text-2xl font-semibold py-10">Meet Our Team</h1>
             <div
                 className="hero "
