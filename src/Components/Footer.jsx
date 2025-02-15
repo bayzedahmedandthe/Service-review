@@ -18,8 +18,9 @@ const Footer = () => {
                 <div className="flex items-center gap-2">
                     <p className="text-blue-600"><a className="text-4xl" href="https://www.facebook.com/home.php"><IoLogoFacebook></IoLogoFacebook></a></p>
                     <a className="text-4xl" href="https://www.google.com/"><FcGoogle></FcGoogle></a>
-                    <a className="text-4xl" href="https://x.com/?lang=en&mx=2"><FaTwitter></FaTwitter></a>
-                    <a className="text-4xl" href="https://www.linkedin.com/"><FaLinkedin></FaLinkedin></a>
+                    <a className="text-4xl text-blue-500" href="https://x.com/?lang=en&mx=2"><FaTwitter></FaTwitter></a>
+                    <a className="text-4xl  text-blue-500" href="https://www.linkedin.com/"><FaLinkedin></FaLinkedin></a>
+                    {/* <a className="text-4xl  text-blue-500" href="https://www.linkedin.com/"><FaLinkedin></FaLinkedin></a> */}
                 </div>
             </nav>
         </footer>
