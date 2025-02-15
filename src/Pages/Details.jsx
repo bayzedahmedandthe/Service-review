@@ -54,14 +54,14 @@ const Details = () => {
     }, [reload])
 
     return (
-        <div className=" grid md:grid-cols-2 pt-32 gap-8 w-11/12 mx-auto">
+        <div className=" grid md:grid-cols-2 py-32 gap-8 w-11/12 mx-auto">
             <Helmet>
                 <title>Services Details</title>
             </Helmet>
             <div
                 data-aos="zoom-in-up"
                 data-aos-duration="2000"
-                className="bg-white shadow-xl rounded-lg p-4 h-[930px]">
+                className="bg-white shadow-xl rounded-lg p-4 ">
 
                 <img className="h-[160px] w-[280px] rounded-lg" src={serviceImage} alt="" />
                 <p className="text-gray-500 pt-2">Post: {Date}</p>
@@ -85,8 +85,8 @@ const Details = () => {
                         <input type="text" name="name" defaultValue={user.displayName} className="input input-bordered w-full max-w-xs" />
                         <input type="email" name="email" defaultValue={user.email} className="input input-bordered w-full max-w-xs" />
                         <input type="url" name="photo" defaultValue={user.photoURL} className="input input-bordered w-full max-w-xs" />
-                        <div className="flex justify-end my-4 text-gray-300">
-                            <button className="bg-[#00032e] hover:text-white md:py-2 md:px-4 rounded-md">Add review</button>
+                        <div className="flex justify-end lg:my-6 text-gray-300 ">
+                            <button className="bg-[#00032e] hover:text-white md:py-2 md:px-4 py-1 px-2  rounded-md">Add review</button>
                         </div>
                     </form>
                 </div>

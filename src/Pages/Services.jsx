@@ -24,7 +24,7 @@ const Services = () => {
                 })
         }, [search])
     return (
-        <div className="w-11/12 mx-auto pt-32">
+        <div className="w-11/12 mx-auto py-32">
             <Helmet>
                 <title>Service | All Service</title>
             </Helmet>

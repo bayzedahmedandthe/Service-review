@@ -104,12 +104,12 @@ const MyServices = () => {
 
 
     return (
-        <div className=" rounded-lg pt-32 w-11/12 mx-auto">
+        <div className=" rounded-lg py-32 w-11/12 mx-auto">
             <Helmet>
                 <title>My Services</title>
             </Helmet>
-            <p className="text-end pr-24 pt-4 font-semibold">Search based on title</p>
-            <div className="flex justify-end pt-2 pr-6">
+            <p className="text-center  pt-4 font-semibold">Search based on title</p>
+            <div className="flex justify-center pt-2  mb-4">
                 <input
                     onChange={(e) => setSearch(e.target.value)}
                     type="text" placeholder="Enter Service title" className="input input-bordered w-full max-w-xs" />
@@ -141,7 +141,7 @@ const MyServices = () => {
                                             <button onClick={() => {
                                                 setUpdateValue(service)
                                                 document.getElementById('my_modal_5').showModal()
-                                            }} className="bg-[#00032e] text-gray-300 hover:text-white md:py-2 md:px-4 rounded-md">Update</button>
+                                            }} className="bg-[#00032e] text-gray-300 hover:text-white md:py-2 md:px-4 py-1 px-2 rounded-md">Update</button>
 
 
 

@@ -18,7 +18,7 @@ const ServiceFeatured = () => {
                 transition={{ duration: 3, repeat: Infinity }}
                 className="font-semibold text-2xl mb-10">Some of the <span className="text-[#30eaff]">services</span></motion.h2>
 
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-16">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 lg:gap-16 md:gap-8 gap-4">
                 {
                     serviceData.map(service => <SingleService key={service._id} service={service}></SingleService>)
                 }

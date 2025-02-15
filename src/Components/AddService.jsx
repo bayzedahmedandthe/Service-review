@@ -31,7 +31,7 @@ const AddService = () => {
     }
 
     return (
-        <div className="lg:w-6/12 mx-auto md:w-8/12 pt-32">
+        <div className="lg:w-6/12 mx-auto md:w-8/12 py-32">
             <Helmet>
                 <title>Add Service</title>
             </Helmet>
@@ -91,7 +91,7 @@ const AddService = () => {
                         className="textarea textarea-bordered textarea-md w-full "></textarea>
                 </div>
                 <div className="form-control mt-6">
-                    <button className="bg-[#00032e] text-gray-300 hover:text-white md:py-2 md:px-4 rounded-md">Add Service</button>
+                    <button className="bg-[#00032e] text-gray-300 hover:text-white md:py-2 md:px-4 py-1 px-2 rounded-md">Add Service</button>
                 </div>
             </form>
         </div>

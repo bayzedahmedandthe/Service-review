@@ -23,7 +23,7 @@ const Navbar = () => {
 
             <div className="navbar-start">
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                    <div tabIndex={0} role="button" className="text-[#30eaff] md:ml-4 lg:hidden">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-5 w-5"
@@ -51,7 +51,7 @@ const Navbar = () => {
                         }
                     </ul>
                 </div>
-                <button className="h-16 w-16 flex justify-center md:mx-8">
+                <button className="lg:h-16 lg:w-16 md:h-12 md:w-12 h-8 w-8 flex justify-center mx-4 md:mx-8">
                     <NavLink to="/">
                         <img src={logo1} alt="" />
                     </NavLink>
@@ -82,7 +82,7 @@ const Navbar = () => {
                         :
                         <div className="text-gray-300 md:mr-8">
                             <button className="mr-4 hover:text-white"><NavLink to="/login">Login</NavLink></button>
-                            <button className="hover:text-white md:mr-8"><NavLink to="/register">Register</NavLink></button>
+                            <button className="hover:text-white lg:mr-8"><NavLink to="/register">Register</NavLink></button>
                         </div>
                 }
             </div>

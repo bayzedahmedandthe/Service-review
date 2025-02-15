@@ -18,7 +18,7 @@ const SingleService = ({ service }) => {
             <p className="text-gray-500">{description}</p>
             <p className="font-semibold py-2">{category}</p>
             <p><span className="font-semibold">Price</span>: {price}</p>
-            <div className="flex justify-end mt-10 text-gray-300 "><button className=" bg-[#00032e] hover:text-white md:py-2 md:px-4 rounded-md"><Link to={`/service/${_id}`}>See Details</Link></button></div>
+            <div className="flex justify-end mt-10 text-gray-300 "><button className=" bg-[#00032e] hover:text-white md:py-2 md:px-4 py-1 px-2 rounded-md"><Link to={`/service/${_id}`}>See Details</Link></button></div>
 
         </div>
     );

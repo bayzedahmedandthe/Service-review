@@ -49,18 +49,18 @@ const Login = () => {
     }
 
     return (
-        <div className="bg-gradient-to-bl from-[#93c1c7] to bg-slate-500">
+        <div className="">
             <div className="w-11/12 mx-auto pt-32 ">
                 <Helmet>
                     <title>Service | Login</title>
                 </Helmet>
                 <div className="md:flex items-center justify-between">
                     <div>
-                        <div className="flex items-center gap-12 ">
+                        <div className="flex items-center lg:gap-12 md:gap-8 gap-2">
                             <div>
-                                <h2 className=" font-semibold md:text-xl text-lg lg:text-2xl">Login now</h2>
+                                <h2 className=" font-semibold md:text-xl text-md lg:text-2xl">Login now</h2>
                             </div>
-                            <button onClick={handleLoginWithGoogle} className="bg-[#00032e] text-gray-300 hover:text-white md:py-2 md:px-4 rounded-md flex gap-4"><span className="text-2xl"><FcGoogle /></span> Login with google</button>
+                            <button onClick={handleLoginWithGoogle} className="bg-[#00032e] text-gray-300 hover:text-white md:py-2 md:px-4 py-1 px-2 rounded-md flex gap-2 lg:gap-4"><span className="text-2xl"><FcGoogle /></span> Login with google</button>
                         </div>
                         <form
                             onSubmit={handleLoginUser}
@@ -78,7 +78,7 @@ const Login = () => {
                                 <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                             </div>
                             <div className="form-control mt-6">
-                                <button className="bg-[#00032e] text-gray-300 hover:text-white md:py-2 md:px-4 rounded-md">Login</button>
+                                <button className="bg-[#00032e] text-gray-300 hover:text-white md:py-2 md:px-4 py-1 px-2 rounded-md">Login</button>
                             </div>
                             <p className="pt-3">New to this website! <Link className="hover:underline" to="/register">register</Link></p>
                         </form>

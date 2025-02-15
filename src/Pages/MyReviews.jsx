@@ -84,15 +84,15 @@ const MyReviews = () => {
         document.getElementById('my_modal_5').close()
     }
     return (
-        <div className="pt-32">
+        <div className="py-32">
             <Helmet>
                 <title>My Reviews</title>
             </Helmet>
             <h2 className="text-2xl font-semibold text-center">My <span className="text-[#30eaff]">reviews</span></h2>
             {
-                myReview.map(review => <div key={review._id} className="w-2/4 mx-auto shadow-xl rounded-lg my-6 py-6">
-                    <h2 className="text-2xl font-semibold py-2 pl-4">{review.serviceTitle}</h2>
-                    <p className="text-lg font-semibold py-2 pl-4">Rating: {review.value}</p>
+                myReview.map(review => <div key={review._id} className="lg:w-2/4 w-[92%] mx-auto shadow-xl rounded-lg my-6 py-6">
+                    <h2 className="lg:text-2xl md:text-xl text-md font-semibold md:py-2 pl-4">{review.serviceTitle}</h2>
+                    <p className="lg:text-lg text-sm font-semibold md:py-2 pl-4">Rating: {review.value}</p>
                     <p className="text-gray-500 pl-4">{review.textReview}</p>
                     <div className="flex justify-end">
                         <div className="flex items-center gap-4 mt-6 mr-4">
@@ -100,7 +100,7 @@ const MyReviews = () => {
                             <button onClick={() => {
                                 setUpdateValue(review)
                                 document.getElementById('my_modal_5').showModal()
-                            }} className="bg-[#00032e] text-gray-300 hover:text-white md:py-2 md:px-4 rounded-md">Update</button>
+                            }} className="bg-[#00032e] text-gray-300 hover:text-white md:py-2 md:px-4 py-1 px-2 rounded-md">Update</button>
 
 
                             <button onClick={() => handleDelete(review._id)} className="btn text-2xl text-red-500"><RiDeleteBin6Line /></button>

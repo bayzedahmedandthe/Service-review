@@ -45,8 +45,8 @@ const Register = () => {
 
     }
     return (
-        <div className="bg-gradient-to-bl from-[#93c1c7] to bg-slate-500">
-            <div className="md:flex justify-between items-center md:max-w-7xl">
+        <div className=" lg:w-9/12 w-[94%] mx-auto">
+            <div className="md:flex items-center">
                 <div className="pt-32 flex-1">
                     <Helmet>
                         <title>Service | Register</title>
@@ -59,7 +59,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" name="name" placeholder="name" className="input input-bordered " required />
+                            <input type="text" name="name" placeholder="name" className="input input-bordered input-info" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -83,7 +83,7 @@ const Register = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="bg-[#00032e] text-gray-300 hover:text-white md:py-2 md:px-4 rounded-md">Register</button>
+                            <button className="bg-[#00032e] text-gray-300 hover:text-white md:py-2 md:px-4 py-1 px-2 rounded-md">Register</button>
                         </div>
                         <p className="pt-3">Alredy have an account! <Link className="hover:underline" to="/login">Login</Link></p>
                     </form>
